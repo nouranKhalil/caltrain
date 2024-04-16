@@ -3,6 +3,8 @@
 
 
 // With two variables
+
+
 // void station_init(struct station *station)
 // {
 //     station->waiting_passengers = 0;

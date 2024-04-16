@@ -62,8 +62,9 @@ alarm_handler(int foo)
 	fprintf(stderr, "Error: Failed to complete after %d seconds. Something's "
 		"wrong, or your system is terribly slow. Possible error hint: [%s]\n",
 		alarm_timeout, alarm_error_str);
-	// printf("%d %d %d\n", station.waiting_passengers, station.boarders, station.empty_seats);
-	// exit(1);
+		// for tracing only make station global to print it and comment line 67
+	// printf("%d %d %d\n", station.waiting_passengers, station.boarders, station.empty_seats); 
+	exit(1);
 }
 
 #ifndef MIN

@@ -16,7 +16,6 @@
 #include <pthread.h>
 
 #include "caltrain.h"
-struct station station;
 // Count of passenger threads that have completed (i.e. station_wait_for_train
 // has returned) and are awaiting a station_on_board() invocation.
 volatile int threads_completed = 0;
@@ -63,7 +62,7 @@ alarm_handler(int foo)
 	fprintf(stderr, "Error: Failed to complete after %d seconds. Something's "
 		"wrong, or your system is terribly slow. Possible error hint: [%s]\n",
 		alarm_timeout, alarm_error_str);
-	printf("%d %d %d\n", station.waiting_passengers, station.boarders, station.empty_seats);
+	// printf("%d %d %d\n", station.waiting_passengers, station.boarders, station.empty_seats);
 	// exit(1);
 }
 
@@ -78,7 +77,8 @@ alarm_handler(int foo)
 int
 main()
 {
-	
+
+	struct station station;
 	station_init(&station);
 
 	srandom(getpid() ^ time(NULL));
